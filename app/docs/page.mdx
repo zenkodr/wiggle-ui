@@ -1,0 +1,123 @@
+import { SparklesIcon } from "lucide-react";
+
+import WidgetsDisplay from "./_components/widgets-display";
+import { getFileContent } from "@/lib/utils.server";
+
+export const baseWidgetFileCode = await getFileContent("widget.tsx");
+
+export const usageCode = `import {
+  Widget,
+  WidgetContent,
+} from "@/components/ui/widget";
+
+<Widget>
+  <WidgetContent>Hello World</WidgetContent>
+</Widget>
+`;
+
+# Welcome to Wigggle UI!
+
+Wigggle UI is a free and open source UI collection of beautifully designed Widgets. It's built with Next.js, Tailwind CSS and shadcn/ui. <br />Works with your favorite frameworks and AI models. Open Source. Open Code.
+
+Wigggle UI is a trusted registry for shadcn/ui. You can start adding components right away!
+
+<div className="mt-3">
+  <CliCommands name="clock-sm-01" />
+</div>
+
+<Separator className="my-6" />
+
+# What is a Widget?
+
+A flexible container component used to build UI widgets. It supports multiple sizes, design variations, color variants, and includes a collection of sub-components to structure your layout.
+Widgets are built using **class-variance-authority** for consistent styling and composability.
+
+<WidgetsDisplay />
+
+<Callout icon={<SparklesIcon className="stroke-yellow-500" />}>
+
+We're working on adding more styles like **Circle** widgets to the collection. In the meantime, you can check out the existing widgets in the [widget registry](https://wiggle-ui.vercel.app/widgets) to get a feel for how they look. We'll have an official release soon.
+
+</Callout>
+
+<Separator className="my-6" />
+
+# Installation
+
+<div className="mt-3">
+  <CliCommands name="widget" />
+</div>
+
+<Separator className="my-6" />
+
+# Usage
+
+<div className="relative mt-6">
+  <CodeBlock code={usageCode} lang="tsx" preHighlighted={null} />
+  <CopyButton componentSource={usageCode} />
+</div>
+
+<Separator className="my-6" />
+
+# Widget.tsx
+
+Every widget is directly dependent on the `widget.tsx` file. This file contains the core logic for the widget, including the logic for rendering the widget and handling user interactions. This widget file exposes a few **Variants** and **Components** that you can use to customize the widget's appearance and behavior.
+
+<div className="relative mt-6">
+  <CodeBlock code={baseWidgetFileCode} lang="tsx" preHighlighted={null} />
+  <CopyButton componentSource={baseWidgetFileCode} />
+</div>
+
+<Separator className="my-6" />
+
+# API Reference
+
+<TypeTable
+  props={[
+    {
+      name: "size",
+      type: "sm | md | lg",
+      default: "sm",
+      description: "Controls the dimensions of the widget card.",
+    },
+    {
+      name: "variant",
+      type: "default | secondary",
+      default: "default",
+      description: "Sets the color theme for the widget background and text.",
+    },
+    {
+      name: "design",
+      type: "default | mumbai",
+      default: "default",
+      description: "Toggles between different internal padding.",
+    },
+    {
+      name: "className",
+      type: "string",
+      description: "Additional CSS classes to apply to the root element.",
+    },
+    {
+      name: "...rest",
+      type: "React.HTMLAttributes<HTMLDivElement>",
+      description: "Additional properties for the HTML div element.",
+    },
+  ]}
+/>
+
+<Separator className="my-6" />
+
+# Sub Components
+
+The following components are structural wrappers and accept standard HTML attributes and className.
+
+- <span className="bg-secondary rounded-md px-2 py-1">WidgetHeader</span> : Top
+  section, flex container (justify-between).
+
+- <span className="bg-secondary rounded-md px-2 py-1">WidgetTitle</span> : Styled `<h5>` for the widget heading.
+
+- <span className="bg-secondary rounded-md px-2 py-1">WidgetContent</span> :
+  Center section, grows to fill available space (flex-1), centers children.
+
+- <span className="bg-secondary rounded-md px-2 py-1">WidgetFooter</span> :
+  Bottom section, flex container.

@@ -115,7 +115,6 @@ export const categories: WidgetCategory[] = [
       ],
     },
     icon: GoalIcon,
-    isNew: true,
   },
   {
     slug: "sports",
