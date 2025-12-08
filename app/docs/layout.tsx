@@ -3,5 +3,5 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className="relative">{children}</div>;
+  return <div className="relative px-6 text-start">{children}</div>;
 }

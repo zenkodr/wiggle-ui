@@ -25,10 +25,12 @@ export function TypeTable({ props, className }: TypeTableProps) {
             <th className="h-10 px-4 py-2 font-medium">Prop</th>
             <th className="h-10 px-4 py-2 font-medium">Type</th>
             <th className="h-10 px-4 py-2 font-medium">Default</th>
-            <th className="h-10 px-4 py-2 font-medium">Description</th>
+            <th className="hidden h-10 px-4 py-2 font-medium lg:block">
+              Description
+            </th>
           </tr>
         </thead>
-        <tbody className="divide-y">
+        <tbody className="divide-y text-sm lg:text-base">
           {props.map((prop, index) => (
             <tr
               key={prop.name + index}
@@ -65,7 +67,7 @@ export function TypeTable({ props, className }: TypeTableProps) {
               </td>
 
               {/* Description */}
-              <td className="text-muted-foreground px-4 py-3 align-top">
+              <td className="text-muted-foreground hidden px-4 py-3 align-top lg:block">
                 {prop.description}
               </td>
             </tr>
